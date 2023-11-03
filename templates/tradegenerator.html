@@ -1,0 +1,139 @@
+<div class="container">
+    <h1>Trade Generator</h1>
+    <div class="row">
+        <div class="col-6">
+            <form hx-post="/trade-generator" hx-target="#content" hx-swap="innerHTML" class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h2>Start System</h2>
+                        <div class="mb-3">
+                            <label for="startPopulation" class="form-label">Population</label>
+                            <input type="text" class="form-control" id="startPopulation" name="startPopulation"
+                                value="{{ .StartPopulation }}" required minlength="1" maxlength="1"
+                                pattern="[0-9a-fA-F]" aria-describedby="startPopulationHelp">
+                            <div id="startPopulationHelp" class="form-text text-light">
+                                Population code: 0-9 or A-F
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startStarport" class="form-label">Starport</label>
+                            <input type="text" class="form-control" id="startStarport" name="startStarport"
+                                value="{{ .StartStarport }}" required minlength="1" maxlength="1" pattern="[a-eA-ExX]"
+                                aria-describedby="startStarportHelp">
+                            <div id="startStarportHelp" class="form-text text-light">
+                                Starport code: A-E or X for none
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="startAlertLevel" id="startnoalert"
+                                value="No Alert" {{ if and (not .StartAmberZone) (not .StartRedZone) }}checked{{ end }}>
+                            <label class="form-check-label" for="startnoalert">
+                                No Alert
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="startAlertLevel" id="startamberalert"
+                                value="Amber Alert" {{ if .StartAmberZone }}checked{{ end }}>
+                            <label class=" form-check-label" for="startamberalert">
+                                Amber Alert
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="startAlertLevel" id="startredalert"
+                                value="Red Alert" {{ if .StartRedZone }}checked{{ end }}>
+                            <label class="form-check-label" for="startredalert">
+                                Red Alert
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2>End System</h2>
+                        <div class="mb-3">
+                            <label for="endPopulation" class="form-label">Population</label>
+                            <input type="text" class="form-control" id="endPopulation" name="endPopulation"
+                                value="{{ .EndPopulation }}" required minlength="1" maxlength="1" pattern="[0-9a-fA-F]"
+                                aria-describedby="endPopulationHelp">
+                            <div id="endPopulationHelp" class="form-text text-light">
+                                Population code: 0-9 or A-F
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endStarport" class="form-label">Starport</label>
+                            <input type="text" class="form-control" id="endStarport" name="endStarport"
+                                value="{{ .EndStarport }}" required minlength="1" maxlength="1" pattern="[a-eA-ExX]"
+                                aria-describedby="endStarportHelp">
+                            <div id="endStarportHelp" class="form-text text-light">
+                                Starport code: A-E or X for none
+                            </div>
+                        </div>
+                        <div class=" form-check">
+                            <input class="form-check-input" type="radio" name="endAlertLevel" id="endnoalert"
+                                value="No Alert" {{ if and (not .EndAmberZone) (not .EndRedZone) }}checked{{ end }}>
+                            <label class="form-check-label" for="endnoalert">
+                                No Alert
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="endAlertLevel" id="endamberalert"
+                                value="Amber Alert" {{ if .EndAmberZone }}checked{{ end }}>
+                            <label class=" form-check-label" for="endamberalert">
+                                Amber Alert
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="endAlertLevel" id="endredalert"
+                                value="Red Alert" {{ if .EndRedZone }}checked{{ end }}>
+                            <label class="form-check-label" for="endredalert">
+                                Red Alert
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="jumps" class="form-label">Number of jumps to other system</label>
+                            <input type="number" class="form-control" id="jumps" name="jumps" value="{{ .Jumps }}"
+                                min="1" style="max-width: 200px;">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="distance" class="form-label">Number of parsecs to other system</label>
+                            <input type="number" class="form-control" id="distance" name="distance"
+                                value="{{ .Distance }}" min="1" style="max-width: 200px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="brokerEffect" class="form-label">Effect from Average (8+) Broker, Carouse, or
+                        Streetwise
+                        check</label>
+                    <input type="number" class="form-control" id="brokerEffect" name="brokerEffect"
+                        value="{{ .BrokerEffect }}" style="max-width: 200px;">
+                </div>
+                <div class="mb-3">
+                    <label for="stewardSkill" class="form-label">Steward skill</label>
+                    <input type="number" class="form-control" id="stewardSkill" name="stewardSkill"
+                        value="{{ .StewardSkill }}" min="{{ .StewardSkill }}" style="max-width: 200px;">
+                </div>
+                <button class="btn btn-primary">Generate</button>
+                <!-- <button class="btn btn-primary">Generate</button> -->
+            </form>
+        </div> <!-- end col -->
+
+        <div class="col">
+            {{ if .PassengerTrades }}
+            <div>
+                <p>Available Passengers:</p>
+                <ul>
+                    {{ range .PassengerTrades }}
+                    <li> {{ .Description }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>
