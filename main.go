@@ -18,7 +18,7 @@ var content embed.FS
 
 func routes() {
 	// Serve static files from "assets" directory
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.FS(content))))
+	http.Handle("/assets/", http.FileServer(http.FS(content)))
 
 	http.HandleFunc("/", handlers.HomePage)
 	http.HandleFunc("/message", handlers.MessagePage)
