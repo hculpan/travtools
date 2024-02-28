@@ -1,0 +1,43 @@
+package templates
+
+templ FindSupplier() {
+<div class="container">
+    <div class="row">
+        <div class="col-auto">
+            <h1>Step 1: Find a supplier!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto">
+            <ul>
+                <li><em>Finding a Supplier or Broker: </em>Average (8+) Broker check (1D6 days, EDU or SOC)</li>
+                <li><em>Finding a Black Market Supplier or Broker of Illegal Goods: </em>Average (8+) Streetwise check
+                    (1D6 days, EDU or SOC)</li>
+                <li><em>Finding an Online Supplier or Broker (TL8+ worlds only): </em>Average (8+) Admin check (1D6
+                    hours, EDU)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-auto">
+            <p>The size of the Starport provides a bonus to finding a supplier.</p>
+            <table class="table table-dark border border-1 border-secondary">
+                <tr>
+                    <td>Class A</td>
+                    <td>DM +6</td>
+                </tr>
+                <tr>
+                    <td>Class B</td>
+                    <td>DM +4</td>
+                </tr>
+                <tr>
+                    <td>Class C</td>
+                    <td>DM +2</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="btn btn-primary mt-4" hx-get="/spec-trade-purchase?step=2" hx-target="#content"
+        hx-swap="innerHTML">Determine Goods Available</a>
+</div>
+}

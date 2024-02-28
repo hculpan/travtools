@@ -8,8 +8,12 @@
 *.so
 *.dylib
 .env
+.DS_Store
+tmp
+spec trade - base data.csv
 
 travtools
+travtools.linux
 dist
 *.zip
 

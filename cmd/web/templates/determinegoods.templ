@@ -1,0 +1,45 @@
+package templates
+
+templ DetermineGoods() {
+<div class="container">
+    <h1>Step 2: Determine Goods Available</h1>
+    <form hx-get="/spec-trade-purchase" class="mb-4" hx-target="#content" hx-swap="innerHTML">
+        <input type="text" name="step" id="step" value="3" hidden />
+        <div class="mb-4">
+            <label class="form-label">System Population Code:</label>
+            <input type="text" class="form-control" id="population" name="population" placeholder="9"
+                style="max-width: 250px;" />
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">System Trade Codes:</label>
+            <input type="text" class="form-control" id="trade" name="trade" placeholder="" style="max-width: 250px;" />
+            <div class="form-text text-secondary">Input two-letter codes only, separated by commas</div>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Broker's Skill:</label>
+            <input type="text" class="form-control" id="broker" name="broker" placeholder="" style="max-width: 250px;" />
+            <div class="form-text text-secondary">Input the Broker skill level, not the result of a Broker roll</div>
+        </div>
+
+        <div class="mb-4">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="goodstype" id="legal-goods" value="legal-goods"
+                    checked />
+                <label class="form-check-label" for="legal-goods">
+                    Legal Goods
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="goodstype" id="illegal-goods"
+                    value="illegal-goods" />
+                <label class="form-check-label" for="illegal-goods">
+                    Illegal/Black Market Goods
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Next</button>
+    </form>
+</div>
+}
