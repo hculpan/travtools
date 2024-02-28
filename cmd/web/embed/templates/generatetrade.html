@@ -1,0 +1,32 @@
+<div>
+    <p>Available Passengers:</p>
+    <table class="table table-dark">
+        <tbody>
+            {{ range .PassengerTrades }}
+            <tr>
+                <td>{{ .Passage }}</td>
+                <td>{{ .Count }}</td>
+                <td>
+                    <div hx-get="/passengers?passage={{ .Passage }}&count={{ .Count }}" hx-target="#trade-details"
+                        hx-swap="innerHTML" hx-trigger="click"><i class="bi bi-arrow-right-square"></i></div>
+                </td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+    <p>Available Freight:</p>
+    <table class="table table-dark">
+        <tbody>
+            {{ range .CargoLots }}
+            <tr>
+                <td>{{ .CargoType }}</td>
+                <td>{{ .LotCount }}</td>
+                <td>
+                    <div hx-get="/cargolots?type={{ .CargoType }}&count={{ .LotCount }}" hx-target="#trade-details"
+                        hx-swap="innerHTML" hx-trigger="click"><i class="bi bi-arrow-right-square"></i></div>
+                </td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</div>

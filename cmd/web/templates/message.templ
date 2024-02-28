@@ -1,0 +1,16 @@
+package templates
+
+templ Message(msg string, isError bool) {
+<div class="container">
+    <div class="row dflex justify-content-center">
+        if isError {
+        <bold class="h3 text-danger col-auto">{ msg }</bold>
+        } else {
+        <bold class="h3 col-auto">{ msg }</bold>
+        }
+    </div>
+    <div class="row dflex justify-content-center mt-4">
+        <a href="/" class="btn btn-primary col-2">Home</a>
+    </div>
+</div>
+}

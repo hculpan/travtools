@@ -1,0 +1,27 @@
+<div class="d-flex flex-row-reverse bd-highlight" onclick="copyPassengerDataToClipboard()">
+    <i class="bi bi-clipboard"></i>
+</div>
+<table class="table table-dark">
+    <tbody>
+        {{ range .Passengers }}
+        <tr>
+            <td>{{ .Name }}</td>
+            <td class="fst-italic">{{ .Aspect }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function copyPassengerDataToClipboard() {
+        // Get the text field
+        var copyText =
+            `{{ range .Passengers}}
+{{ .Name }}: {{ .Aspect }}
+{{ end }}
+`;
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
+    }
+</script>

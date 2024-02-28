@@ -1,0 +1,201 @@
+<div class="container">
+    <h1>Trade Generator</h1>
+    <div class="row">
+        <div class="col-6">
+            <form hx-post="/generate-trade" hx-target="#trade-content" hx-swap="innerHTML" class="container"
+                hx-on::after-request="document.getElementById('trade-details').innerHTML = ''">
+                <div class="row">
+                    <div class="col-6">
+                        <h2>Start System</h2>
+                        <div class="mb-3">
+                            <label for="startName" class="form-label">Name</label>
+                            <div class="container ps-0 pe-0">
+                                <div class="row">
+                                    <div class="col-10 pe-1">
+                                        <input type="text" class="form-control" id="startName" name="startName">
+                                    </div>
+                                    <div class="col ps-0">
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            onclick="setSender('start')" data-bs-target="#staticBackdrop">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startSector" class="form-label">Sector</label>
+                            <input type="text" class="form-control" id="startSector" name="startSector">
+                        </div>
+                        <div class="mb-3">
+                            <label for="startUwp" class="form-label">UWP</label>
+                            <input type="text" class="form-control" id="startUwp" name="startUwp" required minlength="9"
+                                aria-describedby="startUwpHelp">
+                            <!--                                pattern="[ ]*[a-eA-ExX][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[0-9a-fA-F][ ]*[-][ ]*[0-9a-fA-F][ ]*" -->
+                            <div id="startUwpHelp" class="form-text text-light">
+                                UWP code: 8 digits with dash before last
+                            </div>
+                        </div>
+                        <select class="form-select" name="startAlertLevel" id="startAlertLevel"
+                            aria-label="Alert Level">
+                            <option selected value="No Alert">No Alert</option>
+                            <option value="Amber Alert">Amber Alert</option>
+                            <option value="Red Alert">Red Alert</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <h2>End System</h2>
+                        <div class="mb-3">
+                            <label for="startName" class="form-label">Name</label>
+                            <div class="container ps-0 pe-0">
+                                <div class="row">
+                                    <div class="col-10 pe-1">
+                                        <input type="text" class="form-control" id="endName" name="endName">
+                                    </div>
+                                    <div class="col ps-0">
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            onclick="setSender('end')" data-bs-target="#staticBackdrop">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endSector" class="form-label">Sector</label>
+                            <input type="text" class="form-control" id="endSector" name="endSector">
+                        </div>
+                        <div class="mb-3">
+                            <label for="endUwp" class="form-label">UWP</label>
+                            <input type="text" class="form-control" id="endUwp" name="endUwp" required minlength="9"
+                                aria-describedby="endUwpHelp">
+                            <div id="endUwpHelp" class="form-text text-light">
+                                UWP code: 8 digits with dash before last
+                            </div>
+                        </div>
+                        <select class="form-select" name="endAlertLevel" id="endAlertLevel" aria-label="Alert Level">
+                            <option selected value="No Alert">No Alert</option>
+                            <option value="Amber Alert">Amber Alert</option>
+                            <option value="Red Alert">Red Alert</option>
+                        </select>
+                    </div>
+                </div>
+                <hr />
+                <div class="mb-3">
+                    <label for="jumps" class="form-label">Number of jumps to other system</label>
+                    <input type="number" class="form-control" id="jumps" name="jumps" min="1" value="1"
+                        style="max-width: 200px;">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="brokerEffect" class="form-label">Effect of Broker, Carouse, or
+                            Streetwise check</label>
+                    </div>
+                    <div class="col">
+                        <label for="stewardSkill" class="form-label">Steward skill</label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <input type="number" class="form-control" id="brokerEffect" name="brokerEffect" value="0"
+                            style="max-width: 200px;">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="stewardSkill" name="stewardSkill" min="-3"
+                            value="0" style="max-width: 200px;">
+                    </div>
+                </div>
+                <button class="btn btn-primary">Generate</button>
+            </form>
+        </div> <!-- end col -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark" id="staticBackdropLabel">Search for system</h5>
+                        <!--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <div class="modal-body">
+                        <form class="text-dark">
+                            <label for="systemName" class="form-label">System</label>
+                            <input type="text" hidden id="sender" name="sender">
+                            <input type="text" class="form-control" id="systemName" name="systemName" required
+                                aria-describedby="systemNameHelp" hx-get="/search-systems"
+                                hx-trigger="keyup changed delay:1s" hx-target="#systemNames" hx-swap="innerHTML">
+                            <div id="systemNameHelp" class="form-text">
+                                Type name of system
+                            </div>
+                            <select class="form-select mt-3 border border-secondary" size="10" id="systemNames"
+                                onchange='document.getElementById("saveButton").disabled=false;'>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="clearData()">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" disabled id="saveButton"
+                            onclick="saveData()">Save Selection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function setSender(sender) {
+                document.getElementById("saveButton").disabled = true;
+                document.getElementById("sender").value = sender;
+            }
+
+            function clearData() {
+                var selectobject = document.getElementById("systemNames");
+                while (selectobject.length > 0) {
+                    selectobject.remove(0);
+                }
+                document.getElementById("systemName").value = "";
+            }
+
+            function saveData() {
+                var sel = document.getElementById("systemNames");
+                var sysData = sel.options[sel.selectedIndex].text.split(":");
+                var name = sysData[0].trim();
+                var hex = sysData[2].trim();
+                var uwp = sysData[3].trim();
+                var sector = sysData[1].trim();
+                var sender = document.getElementById("sender").value;
+                document.getElementById(sender + 'Name').value = name;
+                document.getElementById(sender + 'Uwp').value = uwp;
+                document.getElementById(sender + 'Sector').value = sector + ' : ' + hex;
+
+                if (document.getElementById("startSector").value && document.getElementById("endSector").value) {
+                    var sect1 = document.getElementById("startSector").value.split(":")
+                    var sect2 = document.getElementById("endSector").value.split(":")
+                    getJumps(sect1[0], sect1[1], sect2[0], sect2[1], 2).then(jumps => {
+                        document.getElementById("jumps").value = jumps.length - 1
+                    })
+                }
+
+                clearData();
+            }
+
+            async function getJumps(startSector, startHex, endSector, endHex, jumpRange) {
+                let url = `https://travellermap.com/api/route?start=${startSector} ${startHex}&end=${endSector} ${endHex}&jump=${jumpRange}`
+                let response = await fetch(url)
+                let data = await response.json()
+                return data
+            }
+        </script>
+
+        <div class="col">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div id="trade-content"></div>
+                    </div>
+                    <div class="col">
+                        <div id="trade-details"></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>

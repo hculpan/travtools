@@ -1,0 +1,874 @@
+[
+    {
+        "id": "11",
+        "type": "common electronics",
+        "availability": [
+            "Ht",
+            "Ri",
+            "Va",
+            "Ga",
+            "Ie",
+            "Lt",
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "De",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Wa",
+            "Fl",
+            "In",
+            "Na"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 10
+        },
+        "base_price": 20000,
+        "purchase_dms": {
+            "Ht": 3,
+            "In": 2,
+            "Ri": 1
+        },
+        "sale_dms": {
+            "Lo": 1,
+            "Ni": 2,
+            "Po": 1
+        }
+    },
+    {
+        "id": "12",
+        "type": "common industrial goods",
+        "availability": [
+            "Fl",
+            "In",
+            "Na",
+            "Ht",
+            "Ri",
+            "Va",
+            "Ga",
+            "Ie",
+            "Lt",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "De",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 10
+        },
+        "base_price": 10000,
+        "purchase_dms": {
+            "In": 5,
+            "Na": 2
+        },
+        "sale_dms": {
+            "Ag": 2,
+            "Ni": 3
+        }
+    },
+    {
+        "id": "13",
+        "type": "common manufactured goods",
+        "availability": [
+            "Ga",
+            "Ie",
+            "Lt",
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "De",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Wa",
+            "Fl",
+            "In",
+            "Na",
+            "Ht",
+            "Ri",
+            "Va"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 10
+        },
+        "base_price": 20000,
+        "purchase_dms": {
+            "In": 5,
+            "Na": 2
+        },
+        "sale_dms": {
+            "Hi": 2,
+            "Ni": 3
+        }
+    },
+    {
+        "id": "14",
+        "type": "common raw materials",
+        "availability": [
+            "Ri",
+            "Va",
+            "Ht",
+            "Ie",
+            "Lt",
+            "Ga",
+            "As",
+            "Ba",
+            "De",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Po",
+            "Ag",
+            "Wa",
+            "In",
+            "Na",
+            "Fl"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 20
+        },
+        "base_price": 5000,
+        "purchase_dms": {
+            "Ag": 3,
+            "Ga": 2
+        },
+        "sale_dms": {
+            "In": 2,
+            "Po": 2
+        }
+    },
+    {
+        "id": "15",
+        "type": "common consumables",
+        "availability": [
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "De",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Wa",
+            "Fl",
+            "In",
+            "Na",
+            "Ht",
+            "Ri",
+            "Va",
+            "Ga",
+            "Ie",
+            "Lt"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 20
+        },
+        "base_price": 500,
+        "purchase_dms": {
+            "Ag": 3,
+            "As": -4,
+            "Ga": 1,
+            "Wa": 2
+        },
+        "sale_dms": {
+            "As": 1,
+            "Fl": 1,
+            "Hi": 1,
+            "Ie": 1
+        }
+    },
+    {
+        "id": "16",
+        "type": "common ore",
+        "availability": [
+            "De",
+            "Hi",
+            "Lo",
+            "Ni",
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "Wa",
+            "Fl",
+            "In",
+            "Na",
+            "Ht",
+            "Ri",
+            "Va",
+            "Ga",
+            "Ie",
+            "Lt"
+        ],
+        "tons": {
+            "num_dice": 2,
+            "modifier": 20
+        },
+        "base_price": 1000,
+        "purchase_dms": {
+            "As": 4
+        },
+        "sale_dms": {
+            "In": 3,
+            "Ni": 1
+        }
+    },
+    {
+        "id": "21",
+        "type": "advanced electronics",
+        "availability": [
+            "In",
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 100000,
+        "purchase_dms": {
+            "Ht": 3,
+            "In": 2
+        },
+        "sale_dms": {
+            "As": 3,
+            "Ni": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "22",
+        "type": "advanced machine parts",
+        "availability": [
+            "Ht",
+            "In"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 75000,
+        "purchase_dms": {
+            "Ht": 1,
+            "In": 2
+        },
+        "sale_dms": {
+            "As": 2,
+            "Ni": 1
+        }
+    },
+    {
+        "id": "23",
+        "type": "advanced manufactured goods",
+        "availability": [
+            "In",
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 100000,
+        "purchase_dms": {
+            "In": 1
+        },
+        "sale_dms": {
+            "Hi": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "24",
+        "type": "advanced weapons",
+        "availability": [
+            "In",
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 150000,
+        "purchase_dms": {
+            "Ht": 2
+        },
+        "sale_dms": {
+            "Po": 1,
+            "ZA": 2,
+            "ZR": 4
+        }
+    },
+    {
+        "id": "25",
+        "type": "advanced vehicles",
+        "availability": [
+            "In",
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 180000,
+        "purchase_dms": {
+            "Ht": 2
+        },
+        "sale_dms": {
+            "As": 2,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "26",
+        "type": "biochemicals",
+        "availability": [
+            "Ag",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 50000,
+        "purchase_dms": {
+            "Ag": 1,
+            "Wa": 2
+        },
+        "sale_dms": {
+            "In": 2
+        }
+    },
+    {
+        "id": "31",
+        "type": "crystals and gems",
+        "availability": [
+            "Ie",
+            "As",
+            "De"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 20000,
+        "purchase_dms": {
+            "As": 2,
+            "De": 1,
+            "Ie": 1
+        },
+        "sale_dms": {
+            "In": 3,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "32",
+        "type": "cybernetics",
+        "availability": [
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 250000,
+        "purchase_dms": {
+            "Ht": 1
+        },
+        "sale_dms": {
+            "As": 1,
+            "Ie": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "33",
+        "type": "live animals",
+        "availability": [
+            "Ga",
+            "Ag"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 10000,
+        "purchase_dms": {
+            "Ag": 2
+        },
+        "sale_dms": {
+            "Lo": 3
+        }
+    },
+    {
+        "id": "34",
+        "type": "luxury consumables",
+        "availability": [
+            "Ga",
+            "Ag",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 20000,
+        "purchase_dms": {
+            "Ag": 2,
+            "Wa": 1
+        },
+        "sale_dms": {
+            "Hi": 2,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "35",
+        "type": "luxury goods",
+        "availability": [
+            "Hi"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 200000,
+        "purchase_dms": {
+            "Hi": 1
+        },
+        "sale_dms": {
+            "Ri": 4
+        }
+    },
+    {
+        "id": "36",
+        "type": "medical supplies",
+        "availability": [
+            "Ht",
+            "Hi"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 50000,
+        "purchase_dms": {
+            "Ht": 2
+        },
+        "sale_dms": {
+            "In": 2,
+            "Po": 1,
+            "Ri": 1
+        }
+    },
+    {
+        "id": "41",
+        "type": "petrochemicals",
+        "availability": [
+            "Fl",
+            "Ie",
+            "De",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 10000,
+        "purchase_dms": {
+            "De": 2
+        },
+        "sale_dms": {
+            "Ag": 1,
+            "In": 2,
+            "Lo": 2
+        }
+    },
+    {
+        "id": "42",
+        "type": "pharmaceuticals",
+        "availability": [
+            "As",
+            "De",
+            "Hi",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 100000,
+        "purchase_dms": {
+            "As": 2,
+            "Hi": 1
+        },
+        "sale_dms": {
+            "Lo": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "43",
+        "type": "polymers",
+        "availability": [
+            "In"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 7000,
+        "purchase_dms": {
+            "In": 1
+        },
+        "sale_dms": {
+            "Ni": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "44",
+        "type": "precious metals",
+        "availability": [
+            "Ie",
+            "As",
+            "De",
+            "Fl"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 50000,
+        "purchase_dms": {
+            "As": 3,
+            "De": 1,
+            "Ie": 2
+        },
+        "sale_dms": {
+            "Ht": 1,
+            "In": 2,
+            "Ri": 3
+        }
+    },
+    {
+        "id": "45",
+        "type": "radioactives",
+        "availability": [
+            "De",
+            "Lo",
+            "As"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 1000000,
+        "purchase_dms": {
+            "As": 2,
+            "Lo": 2
+        },
+        "sale_dms": {
+            "Ag": -3,
+            "Ht": 1,
+            "In": 3,
+            "Ni": -2
+        }
+    },
+    {
+        "id": "46",
+        "type": "robots",
+        "availability": [
+            "In"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 400000,
+        "purchase_dms": {
+            "In": 1
+        },
+        "sale_dms": {
+            "Ag": 2,
+            "Ht": 1
+        }
+    },
+    {
+        "id": "51",
+        "type": "spices",
+        "availability": [
+            "De",
+            "Wa",
+            "Ga"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 6000,
+        "purchase_dms": {
+            "De": 2
+        },
+        "sale_dms": {
+            "Hi": 2,
+            "Po": 3,
+            "Ri": 3
+        }
+    },
+    {
+        "id": "52",
+        "type": "textiles",
+        "availability": [
+            "Ni",
+            "Ag"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 20
+        },
+        "base_price": 3000,
+        "purchase_dms": {
+            "Ag": 7
+        },
+        "sale_dms": {
+            "Hi": 3,
+            "Na": 2
+        }
+    },
+    {
+        "id": "53",
+        "type": "uncommon ore",
+        "availability": [
+            "As",
+            "Ie"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 20
+        },
+        "base_price": 5000,
+        "purchase_dms": {
+            "As": 4
+        },
+        "sale_dms": {
+            "In": 3,
+            "Ni": 1
+        }
+    },
+    {
+        "id": "54",
+        "type": "uncommon raw materials",
+        "availability": [
+            "Ag",
+            "De",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 20000,
+        "purchase_dms": {
+            "Ag": 2,
+            "Wa": 1
+        },
+        "sale_dms": {
+            "Ht": 1,
+            "In": 2
+        }
+    },
+    {
+        "id": "55",
+        "type": "wood",
+        "availability": [
+            "Ga",
+            "Ag"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 20
+        },
+        "base_price": 1000,
+        "purchase_dms": {
+            "Ag": 6
+        },
+        "sale_dms": {
+            "In": 1,
+            "Ri": 2
+        }
+    },
+    {
+        "id": "56",
+        "type": "vehicles",
+        "availability": [
+            "Hi",
+            "In"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 10
+        },
+        "base_price": 15000,
+        "purchase_dms": {
+            "Ht": 1,
+            "In": 2
+        },
+        "sale_dms": {
+            "Hi": 1,
+            "Ni": 2
+        }
+    },
+    {
+        "id": "61",
+        "type": "illegal biochemicals",
+        "availability": [
+            "Ag",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 50000,
+        "purchase_dms": {
+            "Wa": 2
+        },
+        "sale_dms": {
+            "In": 6
+        }
+    },
+    {
+        "id": "62",
+        "type": "cybernetics, illegal",
+        "availability": [
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 250000,
+        "purchase_dms": {
+            "Hi": 1
+        },
+        "sale_dms": {
+            "As": 4,
+            "Ie": 4,
+            "Ri": 8,
+            "ZA": 6,
+            "ZR": 6
+        }
+    },
+    {
+        "id": "63",
+        "type": "drugs, illegal",
+        "availability": [
+            "De",
+            "Hi",
+            "As",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 100000,
+        "purchase_dms": {
+            "As": 1,
+            "De": 1,
+            "Ga": 1,
+            "Wa": 1
+        },
+        "sale_dms": {
+            "Hi": 6,
+            "Ri": 6
+        }
+    },
+    {
+        "id": "64",
+        "type": "luxuries, illegal",
+        "availability": [
+            "Ga",
+            "Ag",
+            "Wa"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 1
+        },
+        "base_price": 50000,
+        "purchase_dms": {
+            "Ag": 2,
+            "Wa": 1
+        },
+        "sale_dms": {
+            "Hi": 4,
+            "Ri": 6
+        }
+    },
+    {
+        "id": "65",
+        "type": "weapons, illegal",
+        "availability": [
+            "In",
+            "Ht"
+        ],
+        "tons": {
+            "num_dice": 1,
+            "modifier": 5
+        },
+        "base_price": 150000,
+        "purchase_dms": {
+            "Ht": 2
+        },
+        "sale_dms": {
+            "Po": 6,
+            "ZA": 8,
+            "ZR": 10
+        }
+    },
+    {
+        "id": "66",
+        "type": "exotics",
+        "availability": [
+            "Ga",
+            "Ie",
+            "Lt",
+            "Ni",
+            "Po",
+            "Ag",
+            "As",
+            "Ba",
+            "De",
+            "Hi",
+            "Lo",
+            "Wa",
+            "Fl",
+            "In",
+            "Na",
+            "Ht",
+            "Ri",
+            "Va"
+        ],
+        "tons": {
+            "num_dice": 0,
+            "modifier": 1
+        },
+        "base_price": 0,
+        "purchase_dms": {},
+        "sale_dms": {}
+    }
+]
