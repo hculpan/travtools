@@ -195,6 +195,70 @@ func rollD6(num int) int {
 	return result
 }
 
+func (t *TradeGood) SetSalePrice(popSize int, tradeCodes []string, brokerSkill int) {
+	result := rollD6(3)
+	result -= brokerSkill
+	result += 2 // local buyer's broker skill, assumed
+
+	purchaseDm := 0
+	for _, code := range tradeCodes {
+		dm, _ := t.GetPurchaseDm(code)
+		if dm > purchaseDm {
+			purchaseDm = dm
+		}
+	}
+
+	saleDm := 0
+	for _, code := range tradeCodes {
+		dm, _ := t.GetSaleDm(code)
+		if dm > saleDm {
+			saleDm = dm
+		}
+	}
+
+	result -= purchaseDm
+	result += saleDm
+
+	pm, err := GetPriceModifier(result)
+	if err != nil {
+		t.SalePrice = 0
+	}
+
+	t.SalePrice = int(float32(t.BasePrice) * pm.SaleModifier)
+}
+
+func (t *TradeGood) SetPurchasePrice(popSize int, tradeCodes []string, brokerSkill int) {
+	result := rollD6(3)
+	result += brokerSkill
+	result -= 2 // local seller's broker skill, assumed
+
+	purchaseDm := 0
+	for _, code := range tradeCodes {
+		dm, _ := t.GetPurchaseDm(code)
+		if dm > purchaseDm {
+			purchaseDm = dm
+		}
+	}
+
+	saleDm := 0
+	for _, code := range tradeCodes {
+		dm, _ := t.GetSaleDm(code)
+		if dm > saleDm {
+			saleDm = dm
+		}
+	}
+
+	result += purchaseDm
+	result -= saleDm
+
+	pm, err := GetPriceModifier(result)
+	if err != nil {
+		t.PurchasePrice = 0
+	}
+
+	t.PurchasePrice = int(float32(t.BasePrice) * pm.PurchaseModifier)
+}
+
 func (t *TradeGood) GetSaleDm(code string) (int, error) {
 	for k, v := range t.SaleDm {
 		if k == code {
@@ -203,6 +267,10 @@ func (t *TradeGood) GetSaleDm(code string) (int, error) {
 	}
 
 	return 0, NewNoDmError(code)
+}
+
+func GetAllTradeGoods() TradeGoods {
+	return allTradeGoods
 }
 
 func GetAvailableForCodes(includeIllegal bool, includeAdditional int, availabilityMod int, codes ...string) []TradeGood {
@@ -293,6 +361,29 @@ func GetSaleResult(tradeGood TradeGood, codes []string) int {
 		n, err := tradeGood.GetSaleDm(c)
 		if err == nil && n > result {
 			result = n
+		}
+	}
+
+	return result
+}
+
+func GetTradeGoodById(id string) (TradeGood, error) {
+	for _, tradeGood := range allTradeGoods {
+		if tradeGood.Id == id {
+			return tradeGood, nil
+		}
+	}
+
+	return TradeGood{}, fmt.Errorf("no trade good with id %q found", id)
+}
+
+func GetTradeGoodsByIds(ids []string) TradeGoods {
+	result := TradeGoods{}
+
+	for _, id := range ids {
+		tg, err := GetTradeGoodById(id)
+		if err == nil {
+			result = append(result, tg)
 		}
 	}
 

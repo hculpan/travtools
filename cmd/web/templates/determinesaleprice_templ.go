@@ -10,7 +10,9 @@ import "context"
 import "io"
 import "bytes"
 
-func DetermineSalePrice() templ.Component {
+import "github.com/hculpan/travtools/pkg/entities"
+
+func DetermineSalePrice(tradeGoods entities.TradeGoods) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +25,84 @@ func DetermineSalePrice() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container\"><h1>Step 2: Determine Sale Price!</h1><a href=\"/\" class=\"btn btn-primary\">Done</a></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container\"><div class=\"row dflex justify-content-between\"><h3 class=\"col-6\">Step 3: Sale Price</h3><button id=\"download-csv\" class=\"btn btn-outline-primary col-1\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-download\" viewBox=\"0 0 16 16\"><path d=\"M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5\"></path> <path d=\"M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z\"></path></svg> CSV</button></div><div class=\"row dflex justify-content-center\"><table class=\"table table-dark table-striped\" id=\"data-table\"><thead><tr><th scope=\"col\">Type</th><th scope=\"col\">Base Price</th><th scope=\"col\">Sale Price</th></tr></thead> <tbody>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		for _, tg := range tradeGoods {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<tr>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if tg.IsIllegal() {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<th class=\"text-danger\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var2 string
+				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(tg.Type)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/templates/determinesaleprice.templ`, Line: 29, Col: 53}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</th>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			} else {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<th>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var3 string
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(tg.Type)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/templates/determinesaleprice.templ`, Line: 31, Col: 33}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</th>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<th>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(p.Sprintf("%v", tg.BasePrice))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/templates/determinesaleprice.templ`, Line: 33, Col: 55}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</th><th>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(p.Sprintf("%v", tg.SalePrice))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/templates/determinesaleprice.templ`, Line: 34, Col: 55}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</th></tr>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</tbody></table></div><div class=\"row dflex justify-content-center\"><a href=\"/\" class=\"btn btn-primary col-4\">Done</a></div></div><script>\n    document.getElementById(\"download-csv\").addEventListener(\"click\", function () {\n        const table = document.getElementById(\"data-table\");\n        const rows = table.querySelectorAll(\"tr\");\n        let csvContent = \"\";\n\n        rows.forEach(function (row) {\n            const cells = row.querySelectorAll(\"th, td\");\n            let rowContent = [];\n            cells.forEach(function (cell) {\n                let cellText = cell.textContent;\n                // Escape double quotes by replacing them with two double quotes\n                cellText = cellText.replace(/\"/g, '\"\"');\n                // Surround the cell text with double quotes and push to rowContent\n                rowContent.push(`\"${cellText}\"`);\n            });\n            csvContent += rowContent.join(\",\") + \"\\n\";\n        });\n\n        const blob = new Blob([csvContent], { type: \"text/csv;charset=utf-8;\" });\n        const link = document.createElement(\"a\");\n        const url = URL.createObjectURL(blob);\n        link.setAttribute(\"href\", url);\n        link.setAttribute(\"download\", \"sale-data.csv\");\n        document.body.appendChild(link);\n        link.click();\n        document.body.removeChild(link);\n    });\n</script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

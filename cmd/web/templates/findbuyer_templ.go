@@ -23,7 +23,7 @@ func FindBuyer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container\"><h1>Step 1: Find a Buyer!</h1><a href=\"#\" class=\"btn btn-primary\" hx-get=\"/spec-trade-sell?step=2\" hx-target=\"#content\" hx-swap=\"innerHTML\">Next</a></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container\"><div class=\"row\"><div class=\"col-auto\"><h1>Step 1: Find a buyer!</h1></div></div><div class=\"row\"><div class=\"col-auto\"><ul><li><em>Finding a Buyer: </em>Average (8+) Broker check (1D6 days, EDU or SOC)</li><li><em>Finding a Black Market Buyer: </em>Average (8+) Streetwise check (1D6 days, EDU or SOC)</li><li><em>Finding an Online Buyer (TL8+ worlds only): </em>Average (8+) Admin check (1D6 hours, EDU)</li></ul></div></div><div class=\"row mt-4\"><div class=\"col-auto\"><p>The size of the Starport provides a bonus to finding a buyer.</p><table class=\"table table-dark border border-1 border-secondary\"><tr><td>Class A</td><td>DM +6</td></tr><tr><td>Class B</td><td>DM +4</td></tr><tr><td>Class C</td><td>DM +2</td></tr></table></div></div><div class=\"row mt-4\"><div class=\"col-auto\"><em>If a Traveller does not accept the price offered for their goods, they must find another buyer or wait a month.</em></div></div><div class=\"row mt-4\"><a href=\"#\" class=\"btn btn-primary me-2 col-2\" hx-get=\"/spec-trade-sell?step=2\" hx-target=\"#content\" hx-swap=\"innerHTML\">Next</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
